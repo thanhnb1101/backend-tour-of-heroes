@@ -14,7 +14,7 @@ import com.demo.heroes.model.Hero;
 import com.demo.heroes.service.HeroService;
 
 @Controller
-@RequestMapping(value = "/hero")
+@RequestMapping(value = "")
 public class HeroController {
 	static Logger log = LoggerFactory.getLogger(HeroController.class.getName());
 
