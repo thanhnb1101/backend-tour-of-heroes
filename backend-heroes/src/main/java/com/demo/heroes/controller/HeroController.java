@@ -14,16 +14,16 @@ import com.demo.heroes.model.Hero;
 import com.demo.heroes.service.HeroService;
 
 @Controller
-@RequestMapping(value = "")
+@RequestMapping(value = "/hero")
 public class HeroController {
 	static Logger log = LoggerFactory.getLogger(HeroController.class.getName());
 
 	@Autowired
 	HeroService heroService;
 	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public ResponseEntity<String> test(@RequestBody Hero request) {
-		return new ResponseEntity<String>("Service is running now.", HttpStatus.OK);
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ResponseEntity<String> testService() {
+		return new ResponseEntity<String>("Service is running.", HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
