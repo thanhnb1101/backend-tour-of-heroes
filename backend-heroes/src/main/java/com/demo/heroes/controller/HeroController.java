@@ -23,7 +23,7 @@ public class HeroController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<String> testService() {
-		return new ResponseEntity<String>("Service is running.", HttpStatus.OK);
+		return new ResponseEntity<String>("Service is running...", HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
