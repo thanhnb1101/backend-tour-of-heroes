@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,8 +42,8 @@ public class HeroController {
 		return new ResponseEntity<Hero>(response, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-	public ResponseEntity<String> deleteHero(@RequestParam int id) {
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteHero(@PathVariable long id) {
 		if (heroService.delete(id)) {
 			return new ResponseEntity<String>("Delete successfully id: " + id, HttpStatus.OK);
 		} else {
@@ -53,6 +54,11 @@ public class HeroController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ResponseEntity<List<Hero>> list() {
 		return new ResponseEntity<List<Hero>>(heroService.list(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Hero> detail(@PathVariable long id) {
+		return new ResponseEntity<Hero>(heroService.getDetailById(id), HttpStatus.OK);
 	}
 
 }

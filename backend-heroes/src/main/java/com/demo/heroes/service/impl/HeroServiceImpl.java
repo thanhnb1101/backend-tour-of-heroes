@@ -54,6 +54,11 @@ public class HeroServiceImpl implements HeroService{
 	public List<Hero> list() {
 		return heroRepository.findAll();
 	}
+
+	@Override
+	public Hero getDetailById(long id) {
+		return heroRepository.findById(id).orElse(null);
+	}
 	
 	
 

@@ -12,4 +12,6 @@ public interface HeroService {
 	boolean delete (long id);
 	
 	List<Hero> list();
+	
+	Hero getDetailById(long id);
 }
