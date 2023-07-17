@@ -1,5 +1,6 @@
 package com.demo.heroes.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -47,6 +48,11 @@ public class HeroServiceImpl implements HeroService{
 			heroRepository.deleteById(id);
 			return true;
 		}
+	}
+
+	@Override
+	public List<Hero> list() {
+		return heroRepository.findAll();
 	}
 	
 	

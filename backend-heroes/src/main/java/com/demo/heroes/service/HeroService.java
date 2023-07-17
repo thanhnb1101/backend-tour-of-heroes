@@ -1,5 +1,7 @@
 package com.demo.heroes.service;
 
+import java.util.List;
+
 import com.demo.heroes.model.Hero;
 
 public interface HeroService {
@@ -8,4 +10,6 @@ public interface HeroService {
 	Hero update(Hero hero) throws Exception;
 	
 	boolean delete (long id);
+	
+	List<Hero> list();
 }
