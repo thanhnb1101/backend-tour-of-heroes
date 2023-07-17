@@ -15,7 +15,7 @@ public class Hero {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name = "id")
-	private int id;
+	private long id;
 	
 	@Column(name = "fullName")
 	private String name;

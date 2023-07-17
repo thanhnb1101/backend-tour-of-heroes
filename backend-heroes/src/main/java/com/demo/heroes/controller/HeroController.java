@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.heroes.model.Hero;
 import com.demo.heroes.service.HeroService;
@@ -30,6 +32,22 @@ public class HeroController {
 	public ResponseEntity<Hero> createHero(@RequestBody Hero request) {
 		Hero response = heroService.save(request);
 		return new ResponseEntity<Hero>(response, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public ResponseEntity<Hero> updateHero(@RequestBody Hero request) {
+		Hero response = heroService.save(request);
+		return new ResponseEntity<Hero>(response, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteHero(@RequestParam int id) {
+		if (heroService.delete(id)) {
+			return new ResponseEntity<String>("Delete successfully id: " + id, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("Ops! There are something wrong with deletion id: " + id, HttpStatus.OK);
+		}
+		
 	}
 
 }
