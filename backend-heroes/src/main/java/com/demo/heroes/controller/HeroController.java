@@ -22,7 +22,7 @@ public class HeroController {
 	HeroService heroService;
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public ResponseEntity<String> test(@RequestBody Hero request) {
+	public ResponseEntity<String> test() {
 		return new ResponseEntity<String>("Service is running now.", HttpStatus.OK);
 	}
 
